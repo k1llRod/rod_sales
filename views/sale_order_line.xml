@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="sale_order_form_readonly_id" model="ir.ui.view">
+            <field name="name">sale.order.form.inh</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_unit']"
+                       position="after">
+                    <field name="standard_price" readonly="state == 'draft'"/>
+                </xpath>
+<!--                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='standard_price']" position="attributes">-->
+<!--                    <attribute name="attrs">{'readonly': [('state','=','draft'}</attribute>-->
+<!--&lt;!&ndash;                    <attribute name="attrs">{'readonly': [('group_id','not in','[ref('rod_sale.group_cost_readonly')]')]}</attribute>&ndash;&gt;-->
+<!--                </xpath>-->
+
+            </field>
+        </record>
+<!--        <record model="ir.ui.view" id="sale_order_line_readonly">-->
+<!--            <field name="name">sale.order.line.readonly</field>-->
+<!--            <field name="model">sale.order</field>-->
+<!--            <field name="inherit_id" ref="rod_sales.sale_order_form_readonly_id"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='standard_price']" position="attributes">-->
+<!--                    <attribute name="attrs">{'readonly': [('state','=','draft')]}</attribute>-->
+<!--                </xpath>-->
+<!--&lt;!&ndash;                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='standard_price']" position="attributes">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <attribute name="groups">rod_sales.group_cost_readonly</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+<!--&lt;!&ndash;                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='standard_price']" position="after">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="standard_price" readonly="1" groups="rod_sales.group_cost_readonly"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>
