@@ -7,12 +7,13 @@
             <field name="arch" type="xml">
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_unit']"
                        position="after">
-                    <field name="standard_price" readonly=""/>
+                    <field name="standard_price" string="Costo 1"/>
                 </xpath>
                 <xpath expr="//group[@name='partner_details']/field[@name='partner_id']" position="after">
                     <field name="readonly_user"/>
                 </xpath>
             </field>
         </record>
+
     </data>
 </odoo>

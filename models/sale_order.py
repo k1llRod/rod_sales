@@ -3,7 +3,9 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    @api.onchange('product_template_id')
-    def _onchange_product_id(self):
+    readonly_user = fields.Boolean(string='Readonly User', store=True, compute='_compute_readonly_user')
+
+    @api.depends('partner_id', 'create_uid')
+    def _compute_readonly_user(self):
         for record in self:
-            a = 1
+            record.readonly_user = record.create_uid.has_group("rod_sales.group_cost_readonly")
