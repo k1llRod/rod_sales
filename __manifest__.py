@@ -18,14 +18,19 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale','sale_margin','report_py3o'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'security/security.xml',
+        # 'views/sale_order.xml',
+        # 'views/stock_move_line.xml',
         'views/sale_order_line.xml',
-        # 'views/views.xml',
+        'views/commission.xml',
+        'views/res_partner.xml',
+        'views/res_users.xml',
+        'report/report_sale.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode
